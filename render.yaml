@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: multimedia-frontend
+    root: app
+    env: static
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: VITE_API_URL
+        value: https://interactivelearninginmultimedia.onrender.com/api
+      - key: VITE_SUPABASE_URL
+        scope: build
+      - key: VITE_SUPABASE_ANON_KEY
+        scope: build
+  
+  - type: web
+    name: multimedia-backend
+    root: backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
