@@ -1,9 +1,0 @@
-{
-  "projects": [
-    {
-      "name": "multimedia-frontend",
-      "rootDirectory": "app",
-      "outputDirectory": "dist"
-    }
-  ]
-}
