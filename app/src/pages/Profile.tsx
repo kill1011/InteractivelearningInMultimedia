@@ -64,8 +64,7 @@ const Profile: React.FC = () => {
     setIsLoading(true);
     try {
       await authAPI.changePassword({
-        currentPassword: passwordData.currentPassword,
-        newPassword: passwordData.newPassword
+        password: passwordData.newPassword
       });
       showToast('Password changed successfully', 'success');
       setIsChangingPassword(false);

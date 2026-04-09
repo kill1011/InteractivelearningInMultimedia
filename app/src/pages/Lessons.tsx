@@ -32,8 +32,10 @@ const Lessons: React.FC = () => {
       if (selectedStatus) params.status = selectedStatus;
 
       const response = await lessonsAPI.getAll(params);
-      setLessons(response.data.lessons);
-      setCategories(response.data.categories);
+      setLessons(response.data || []);
+      // Extract unique categories from lessons
+      const uniqueCategories = Array.from(new Set((response.data || []).map((l: any) => l.category)));
+      setCategories(uniqueCategories as string[]);
     } catch (error) {
       console.error('Failed to fetch lessons:', error);
     } finally {

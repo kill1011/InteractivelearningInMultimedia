@@ -76,15 +76,15 @@ const QuizAttempt: React.FC = () => {
   };
 
   const handleAnswer = (answer: string) => {
-    const questionId = questions[currentQuestion].id;
+    const questionId = Number(questions[currentQuestion].id);
     setAnswers((prev) => {
       const existing = prev.findIndex((a) => a.questionId === questionId);
       if (existing >= 0) {
         const updated = [...prev];
-        updated[existing] = { questionId, answer };
+        updated[existing] = { questionId: Number(questionId), answer };
         return updated;
       }
-      return [...prev, { questionId, answer }];
+      return [...prev, { questionId: Number(questionId), answer }];
     });
   };
 
