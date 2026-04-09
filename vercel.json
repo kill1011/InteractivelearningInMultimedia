@@ -1,4 +1,9 @@
 {
-  "buildCommand": "npm --prefix app run build",
-  "outputDirectory": "app/dist"
+  "projects": [
+    {
+      "name": "multimedia-frontend",
+      "rootDirectory": "app",
+      "outputDirectory": "dist"
+    }
+  ]
 }
